@@ -26,7 +26,6 @@ document.querySelectorAll('.timeline-item, .route-card, .highlight-item').forEac
   observer.observe(el);
 });
 
-// ─── ADD VISIBLE CLASS FOR CSS ANIMATION ───────────────────
 const style = document.createElement('style');
 style.textContent = `
   .timeline-item, .route-card, .highlight-item {
@@ -39,7 +38,6 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ─── SMOOTH ACTIVE NAV LINK ─────────────────────────────────
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
@@ -58,7 +56,6 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-// ─── STAMP: subtle rotation on hover ───────────────────────
 const stamp = document.querySelector('.hero-stamp');
 if (stamp) {
   stamp.addEventListener('mouseenter', () => {
