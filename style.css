@@ -118,21 +118,17 @@ body {
 }
 
 .hero-eyebrow {
-  font-size: 1rem;
-  font-weight: 600;
-  letter-spacing: 0.3em;
-  text-transform: uppercase;
-  color: rgba(255,255,255,0.35);
-  margin-bottom: 20px;
+  display: none;
 }
 
 .hero-title {
   font-family: var(--font-display);
-  font-size: clamp(6rem, 18vw, 14rem);
+  font-size: clamp(4rem, 12vw, 9rem); /* kleiner, da jetzt mehrzeilig */
   font-weight: 900;
   color: #fff;
-  line-height: 0.85;
+  line-height: 0.9;
   letter-spacing: -0.04em;
+  margin-top: 20px; /* ersetzt den wegfallenden margin-bottom des Eyebrows */
 }
 
 .hero-subtitle {
