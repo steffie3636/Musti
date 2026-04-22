@@ -339,6 +339,67 @@ body {
 }
 .route-card-arrow::after { content: ' →'; }
 
+/* ── MAP SECTION ────────────────────────────────────────── */
+.map-section {
+  background: var(--paper);
+  border-top: 1px solid var(--border);
+  border-bottom: 1px solid var(--border);
+}
+
+.map-inner {
+  padding: 72px 64px 36px;
+  text-align: center;
+}
+
+.map-tabs {
+  display: inline-flex;
+  border: 1px solid var(--border);
+  border-radius: 3px;
+  overflow: hidden;
+  margin-top: 28px;
+}
+
+.map-tab {
+  padding: 11px 28px;
+  border: none;
+  border-right: 1px solid var(--border);
+  background: var(--white);
+  color: var(--muted);
+  font-family: var(--font-body);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+.map-tab:last-child { border-right: none; }
+.map-tab:hover { background: var(--light); color: var(--text); }
+.map-tab.active { background: var(--text); color: #fff; }
+
+#leaflet-map {
+  height: 500px;
+  width: 100%;
+}
+
+.leaflet-tooltip.map-tip {
+  background: #161614;
+  border: none;
+  border-radius: 2px;
+  color: #fff;
+  font-family: 'Inter', sans-serif;
+  font-size: 0.7rem;
+  font-weight: 600;
+  padding: 5px 10px;
+  box-shadow: none;
+  white-space: nowrap;
+}
+.leaflet-tooltip.map-tip::before { border-top-color: #161614; }
+
+.leaflet-control-attribution {
+  font-size: 9px !important;
+}
+
 /* ── ROUTE SECTIONS ──────────────────────────────────────── */
 .route-section { background: var(--white); }
 
@@ -534,6 +595,10 @@ body {
 
   .route-summary { flex-wrap: wrap; }
   .summary-item { min-width: 50%; border-bottom: 1px solid rgba(255,255,255,0.06); }
+
+  .map-inner { padding: 56px 32px 28px; }
+  #leaflet-map { height: 400px; }
+  .map-tab { padding: 10px 18px; }
 }
 
 @media (max-width: 540px) {
@@ -543,4 +608,7 @@ body {
   .timeline { padding: 48px 16px 48px 64px; }
   .van-text { padding: 40px 20px; }
   .route-chooser { padding: 56px 20px; }
+  .map-inner { padding: 40px 20px 20px; }
+  #leaflet-map { height: 300px; }
+  .map-tab { font-size: 0.65rem; padding: 9px 12px; }
 }
