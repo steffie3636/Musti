@@ -130,18 +130,6 @@
     </div>
   </section>
 
-  <section class="map-section" id="map">
-    <div class="map-inner">
-      <span class="section-label">Übersicht</span>
-      <h2 class="section-title">Beide Routen<br><em>auf der Karte</em></h2>
-      <div class="map-tabs">
-        <button class="map-tab active" data-route="1">Route 01 · Küste &amp; Island</button>
-        <button class="map-tab" data-route="2">Route 02 · Rockies &amp; Okanagan</button>
-      </div>
-    </div>
-    <div id="leaflet-map"></div>
-  </section>
-
   <section class="route-section" id="route1">
     <div class="route-header route-header-1">
       <div class="route-header-content">
@@ -150,6 +138,7 @@
         <p>Pazifikküste · Tofino · Butchart Gardens · Sea-to-Sky</p>
       </div>
     </div>
+    <div id="map-route1" class="route-map"></div>
 
     <div class="timeline">
       <div class="timeline-line"></div>
@@ -157,6 +146,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">1–2</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/30294477/pexels-photo-30294477.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 1–2</span>
             <h3 class="tcard-place">Vancouver</h3>
@@ -169,6 +159,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">3</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/6210669/pexels-photo-6210669.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 3</span>
             <h3 class="tcard-place">Fähre → Victoria</h3>
@@ -182,6 +173,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">4</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/1526713/pexels-photo-1526713.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 4</span>
             <h3 class="tcard-place">Victoria</h3>
@@ -195,6 +187,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">5</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 5</span>
             <h3 class="tcard-place">Victoria → Tofino</h3>
@@ -208,6 +201,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">6–7</div>
         <div class="timeline-card tcard-featured">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/11505995/pexels-photo-11505995.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 6–7</span>
             <h3 class="tcard-place">Tofino ⭐</h3>
@@ -221,6 +215,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">8</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/2662086/pexels-photo-2662086.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 8</span>
             <h3 class="tcard-place">Fähre → Vancouver</h3>
@@ -234,6 +229,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">9–10</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/691668/pexels-photo-691668.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 9–10</span>
             <h3 class="tcard-place">Sea-to-Sky → Vancouver</h3>
@@ -261,6 +257,7 @@
         <p>Flug Calgary · Banff · Icefields Parkway · Kelowna · Vancouver</p>
       </div>
     </div>
+    <div id="map-route2" class="route-map"></div>
 
     <div class="timeline">
       <div class="timeline-line"></div>
@@ -268,6 +265,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">1</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/7919/pexels-photo.jpg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 1</span>
             <h3 class="tcard-place">Flug → Calgary</h3>
@@ -281,6 +279,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">2</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 2</span>
             <h3 class="tcard-place">Banff — Ankommen</h3>
@@ -294,6 +293,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">3</div>
         <div class="timeline-card tcard-featured">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/417074/pexels-photo-417074.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 3</span>
             <h3 class="tcard-place">Banff Seen ⭐</h3>
@@ -307,6 +307,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">4</div>
         <div class="timeline-card tcard-featured">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/2365457/pexels-photo-2365457.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 4</span>
             <h3 class="tcard-place">Icefields Parkway ⭐</h3>
@@ -320,6 +321,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">5</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/459225/pexels-photo-459225.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 5</span>
             <h3 class="tcard-place">Rogers Pass → Kelowna</h3>
@@ -333,6 +335,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">6</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/31909354/pexels-photo-31909354.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 6</span>
             <h3 class="tcard-place">Kelowna</h3>
@@ -345,6 +348,7 @@
       <div class="timeline-item">
         <div class="timeline-dot">7</div>
         <div class="timeline-card">
+          <div class="tcard-photo" style="background-image:url('https://images.pexels.com/photos/878487/pexels-photo-878487.jpeg?auto=compress&cs=tinysrgb&w=800&h=400&dpr=1')"></div>
           <div class="tcard-header">
             <span class="tcard-day">Tag 7</span>
             <h3 class="tcard-place">Kelowna → Vancouver</h3>

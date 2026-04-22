@@ -70,69 +70,54 @@ if (stamp) {
   });
 }
 
-// ─── LEAFLET MAP ────────────────────────────────────────────
-if (document.getElementById('leaflet-map')) {
-  const map = L.map('leaflet-map', { scrollWheelZoom: false, zoomControl: true });
+// ─── LEAFLET MAPS ───────────────────────────────────────────
+const RED  = '#C8102E';
+const BLUE = '#0B4F70';
+const tipOpts = { direction: 'top', className: 'map-tip', offset: [0, -4] };
 
+function dot(latlng, color, label) {
+  return L.circleMarker(latlng, {
+    radius: 6, color, fillColor: '#fff', fillOpacity: 1, weight: 2.5,
+  }).bindTooltip(label, tipOpts);
+}
+
+function buildRouteMap(id, layerGroup, sw, ne) {
+  const el = document.getElementById(id);
+  if (!el) return;
+  const m = L.map(id, { scrollWheelZoom: false, zoomControl: true });
   L.tileLayer('https://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}{r}.png', {
     attribution: '&copy; <a href="https://openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="https://carto.com">CARTO</a>',
     maxZoom: 13,
-  }).addTo(map);
-
-  const RED  = '#C8102E';
-  const BLUE = '#0B4F70';
-  const tipOpts = { direction: 'top', className: 'map-tip', offset: [0, -4] };
-
-  function dot(latlng, color, label) {
-    return L.circleMarker(latlng, {
-      radius: 6, color, fillColor: '#fff', fillOpacity: 1, weight: 2.5,
-    }).bindTooltip(label, tipOpts);
-  }
-
-  // ── Route 1: Küste & Vancouver Island ──
-  const r1 = L.layerGroup([
-    L.polyline([[49.283,-123.121],[49.007,-123.131]], { color: RED, weight: 3 }),
-    L.polyline([[49.007,-123.131],[48.754,-123.393]], { color: RED, weight: 2, dashArray: '7 6' }),
-    L.polyline([[48.754,-123.393],[48.428,-123.366],[48.566,-123.469],[49.308,-124.530],[49.153,-125.907],[49.166,-123.940]], { color: RED, weight: 3 }),
-    L.polyline([[49.166,-123.940],[49.374,-123.273]], { color: RED, weight: 2, dashArray: '7 6' }),
-    L.polyline([[49.374,-123.273],[49.702,-123.156],[50.116,-122.957],[49.283,-123.121]], { color: RED, weight: 3 }),
-    dot([49.283,-123.121], RED, 'Vancouver'),
-    dot([48.428,-123.366], RED, 'Victoria'),
-    dot([48.566,-123.469], RED, 'Butchart Gardens'),
-    dot([49.153,-125.907], RED, 'Tofino'),
-    dot([50.116,-122.957], RED, 'Whistler'),
-  ]);
-
-  // ── Route 2: Rockies & Okanagan ──
-  const r2 = L.layerGroup([
-    L.polyline([[49.283,-123.121],[51.045,-114.072]], { color: BLUE, weight: 2, dashArray: '8 5', opacity: 0.7 }),
-    L.polyline([[51.045,-114.072],[51.178,-115.571],[51.425,-116.177],[52.220,-117.224],[51.299,-116.966],[50.998,-118.196],[51.299,-117.524],[49.888,-119.496]], { color: BLUE, weight: 3 }),
-    L.polyline([[49.888,-119.496],[50.300,-121.500],[50.116,-122.957],[49.702,-123.156],[49.283,-123.121]], { color: BLUE, weight: 3 }),
-    dot([49.283,-123.121], BLUE, 'Vancouver'),
-    dot([51.045,-114.072], BLUE, 'Calgary ✈'),
-    dot([51.178,-115.571], BLUE, 'Banff'),
-    dot([51.425,-116.177], BLUE, 'Lake Louise'),
-    dot([52.220,-117.224], BLUE, 'Athabasca Gletscher'),
-    dot([49.888,-119.496], BLUE, 'Kelowna'),
-    dot([50.116,-122.957], BLUE, 'Whistler'),
-  ]);
-
-  r1.addTo(map);
-  map.fitBounds(L.polyline([[48.4,-125.9],[50.2,-122.9]]).getBounds().pad(0.1));
-
-  document.querySelectorAll('.map-tab').forEach(tab => {
-    tab.addEventListener('click', () => {
-      document.querySelectorAll('.map-tab').forEach(t => t.classList.remove('active'));
-      tab.classList.add('active');
-      if (tab.dataset.route === '1') {
-        map.removeLayer(r2);
-        r1.addTo(map);
-        map.flyToBounds(L.polyline([[48.4,-125.9],[50.2,-122.9]]).getBounds().pad(0.1), { duration: 0.7 });
-      } else {
-        map.removeLayer(r1);
-        r2.addTo(map);
-        map.flyToBounds(L.polyline([[48.4,-123.1],[52.4,-114.0]]).getBounds().pad(0.1), { duration: 0.7 });
-      }
-    });
-  });
+  }).addTo(m);
+  layerGroup.addTo(m);
+  m.fitBounds(L.latLngBounds(sw, ne).pad(0.1));
 }
+
+const r1 = L.layerGroup([
+  L.polyline([[49.283,-123.121],[49.007,-123.131]], { color: RED, weight: 3 }),
+  L.polyline([[49.007,-123.131],[48.754,-123.393]], { color: RED, weight: 2, dashArray: '7 6' }),
+  L.polyline([[48.754,-123.393],[48.428,-123.366],[48.566,-123.469],[49.308,-124.530],[49.153,-125.907],[49.166,-123.940]], { color: RED, weight: 3 }),
+  L.polyline([[49.166,-123.940],[49.374,-123.273]], { color: RED, weight: 2, dashArray: '7 6' }),
+  L.polyline([[49.374,-123.273],[49.702,-123.156],[50.116,-122.957],[49.283,-123.121]], { color: RED, weight: 3 }),
+  dot([49.283,-123.121], RED, 'Vancouver'),
+  dot([48.428,-123.366], RED, 'Victoria'),
+  dot([48.566,-123.469], RED, 'Butchart Gardens'),
+  dot([49.153,-125.907], RED, 'Tofino'),
+  dot([50.116,-122.957], RED, 'Whistler'),
+]);
+
+const r2 = L.layerGroup([
+  L.polyline([[49.283,-123.121],[51.045,-114.072]], { color: BLUE, weight: 2, dashArray: '8 5', opacity: 0.7 }),
+  L.polyline([[51.045,-114.072],[51.178,-115.571],[51.425,-116.177],[52.220,-117.224],[51.299,-116.966],[50.998,-118.196],[51.299,-117.524],[49.888,-119.496]], { color: BLUE, weight: 3 }),
+  L.polyline([[49.888,-119.496],[50.300,-121.500],[50.116,-122.957],[49.702,-123.156],[49.283,-123.121]], { color: BLUE, weight: 3 }),
+  dot([49.283,-123.121], BLUE, 'Vancouver'),
+  dot([51.045,-114.072], BLUE, 'Calgary'),
+  dot([51.178,-115.571], BLUE, 'Banff'),
+  dot([51.425,-116.177], BLUE, 'Lake Louise'),
+  dot([52.220,-117.224], BLUE, 'Athabasca Gletscher'),
+  dot([49.888,-119.496], BLUE, 'Kelowna'),
+  dot([50.116,-122.957], BLUE, 'Whistler'),
+]);
+
+buildRouteMap('map-route1', r1, [48.4,-125.9], [50.2,-122.9]);
+buildRouteMap('map-route2', r2, [48.4,-123.1], [52.4,-114.0]);
