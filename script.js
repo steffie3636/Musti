@@ -1,4 +1,4 @@
-// ─── NAV: show after scrolling past hero ───────────────────
+// ─── NAV: show after scrolling past hero ─────────────────────────────
 const nav = document.getElementById('nav');
 
 window.addEventListener('scroll', () => {
@@ -10,7 +10,7 @@ window.addEventListener('scroll', () => {
   }
 }, { passive: true });
 
-// ─── INTERSECTION OBSERVER: animate timeline cards ─────────
+// ─── INTERSECTION OBSERVER: animate timeline cards ─────────────────
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
@@ -26,7 +26,7 @@ document.querySelectorAll('.timeline-item, .route-card, .highlight-item').forEac
   observer.observe(el);
 });
 
-// ─── ADD VISIBLE CLASS FOR CSS ANIMATION ───────────────────
+// ─── ADD VISIBLE CLASS FOR CSS ANIMATION ─────────────────────────
 const style = document.createElement('style');
 style.textContent = `
   .timeline-item, .route-card, .highlight-item {
@@ -39,7 +39,7 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// ─── SMOOTH ACTIVE NAV LINK ─────────────────────────────────
+// ─── SMOOTH ACTIVE NAV LINK ───────────────────────────────────────
 const sections = document.querySelectorAll('section[id]');
 const navLinks = document.querySelectorAll('.nav-link');
 
@@ -58,7 +58,7 @@ const sectionObserver = new IntersectionObserver((entries) => {
 
 sections.forEach(s => sectionObserver.observe(s));
 
-// ─── STAMP: subtle rotation on hover ───────────────────────
+// ─── STAMP: subtle rotation on hover ─────────────────────────────
 const stamp = document.querySelector('.hero-stamp');
 if (stamp) {
   stamp.addEventListener('mouseenter', () => {
@@ -70,7 +70,7 @@ if (stamp) {
   });
 }
 
-// ─── LEAFLET MAPS ───────────────────────────────────────────
+// ─── LEAFLET MAPS ───────────────────────────────────────────────
 const RED  = '#C8102E';
 const BLUE = '#0B4F70';
 const tipOpts = { direction: 'top', className: 'map-tip', offset: [0, -4] };
