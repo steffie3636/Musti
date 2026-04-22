@@ -7,6 +7,7 @@
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
   <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
   <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -83,7 +84,7 @@
         <div class="highlight-item">
           <span class="highlight-icon">🍜</span>
           <div>
-            <strong>Gastown & Yaletown</strong>
+            <strong>Gastown &amp; Yaletown</strong>
             <span>Beste Restaurants, Abendessen am Hafen</span>
           </div>
         </div>
@@ -104,7 +105,7 @@
         </div>
         <div class="route-card-body">
           <div class="route-card-number">Route 01</div>
-          <h3>Küste &<br>Vancouver Island</h3>
+          <h3>Küste &amp;<br>Vancouver Island</h3>
           <p>Fähren, Regenwald, Pazifik-Surfer und Butchart Gardens</p>
           <div class="route-card-tags">
             <span>10 Tage</span><span>Fähren</span><span>Tofino</span>
@@ -118,7 +119,7 @@
         </div>
         <div class="route-card-body">
           <div class="route-card-number">Route 02</div>
-          <h3>Rockies &<br>Okanagan</h3>
+          <h3>Rockies &amp;<br>Okanagan</h3>
           <p>Flug nach Calgary, Banff, Gletscherseen und Weinland</p>
           <div class="route-card-tags">
             <span>10 Tage</span><span>Banff</span><span>Kelowna</span>
@@ -129,11 +130,23 @@
     </div>
   </section>
 
+  <section class="map-section" id="map">
+    <div class="map-inner">
+      <span class="section-label">Übersicht</span>
+      <h2 class="section-title">Beide Routen<br><em>auf der Karte</em></h2>
+      <div class="map-tabs">
+        <button class="map-tab active" data-route="1">Route 01 · Küste &amp; Island</button>
+        <button class="map-tab" data-route="2">Route 02 · Rockies &amp; Okanagan</button>
+      </div>
+    </div>
+    <div id="leaflet-map"></div>
+  </section>
+
   <section class="route-section" id="route1">
     <div class="route-header route-header-1">
       <div class="route-header-content">
         <span class="route-badge">Route 01</span>
-        <h2>Küste, Fähren &<br>Vancouver Island</h2>
+        <h2>Küste, Fähren &amp;<br>Vancouver Island</h2>
         <p>Pazifikküste · Tofino · Butchart Gardens · Sea-to-Sky</p>
       </div>
     </div>
@@ -244,7 +257,7 @@
     <div class="route-header route-header-2">
       <div class="route-header-content">
         <span class="route-badge">Route 02</span>
-        <h2>Rockies &<br>Okanagan</h2>
+        <h2>Rockies &amp;<br>Okanagan</h2>
         <p>Flug Calgary · Banff · Icefields Parkway · Kelowna · Vancouver</p>
       </div>
     </div>
@@ -359,6 +372,7 @@
     <p class="footer-small">Gemacht mit ❤️ · Kanada 2025</p>
   </footer>
 
+  <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
   <script src="script.js"></script>
 </body>
 </html>
