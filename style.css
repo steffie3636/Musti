@@ -35,7 +35,6 @@ body {
   overflow-x: hidden;
 }
 
-/* ── TEXTURES & HELPERS ─────────────────────────────────── */
 .section-tape {
   display: inline-block;
   background: var(--gold);
@@ -68,7 +67,6 @@ body {
   margin-bottom: 28px;
 }
 
-/* ── NAV ────────────────────────────────────────────────── */
 .nav {
   position: fixed; top: 0; left: 0; right: 0; z-index: 100;
   display: flex; align-items: center; justify-content: space-between;
@@ -97,7 +95,6 @@ body {
 }
 .nav-link:hover { color: var(--rust); }
 
-/* ── HERO ───────────────────────────────────────────────── */
 .hero {
   position: relative;
   min-height: 100vh;
@@ -222,7 +219,6 @@ body {
   background: linear-gradient(to bottom, rgba(255,255,255,0.35), transparent);
 }
 
-/* ── VANCOUVER ─────────────────────────────────────────── */
 .section-vancouver {
   padding: 100px 60px;
   max-width: 1200px;
@@ -327,7 +323,6 @@ body {
 }
 .weather-card strong { color: var(--ink); font-size: 1rem; }
 
-/* ── ROUTE CHOOSER ─────────────────────────────────────── */
 .route-chooser {
   background: var(--parchment);
   padding: 100px 60px;
@@ -422,7 +417,6 @@ body {
   font-size: 0.95rem;
 }
 
-/* ── ROUTE SECTIONS ────────────────────────────────────── */
 .route-section {
   background: var(--cream);
 }
@@ -481,7 +475,6 @@ body {
   letter-spacing: 0.05em;
 }
 
-/* ── TIMELINE ───────────────────────────────────────────── */
 .timeline {
   max-width: 900px;
   margin: 0 auto;
@@ -619,7 +612,6 @@ body {
   margin-top: 8px;
 }
 
-/* ── ROUTE SUMMARY ─────────────────────────────────────── */
 .route-summary {
   display: flex;
   justify-content: center;
@@ -644,7 +636,6 @@ body {
 .summary-item strong { font-family: var(--font-display); font-size: 1.1rem; color: var(--ink); }
 .summary-item > span:last-child { font-size: 0.8rem; color: var(--muted); }
 
-/* ── FOOTER ─────────────────────────────────────────────── */
 .footer {
   background: var(--deep);
   color: rgba(255,255,255,0.7);
@@ -667,7 +658,6 @@ body {
 }
 .footer-small { font-size: 0.85rem; opacity: 0.4; }
 
-/* ── ANIMATIONS ─────────────────────────────────────────── */
 @keyframes fadeUp {
   from { opacity: 0; transform: translateY(30px); }
   to   { opacity: 1; transform: translateY(0); }
@@ -683,17 +673,13 @@ body {
   50%       { opacity: 0.9; }
 }
 
-/* ── RESPONSIVE ─────────────────────────────────────────── */
 @media (max-width: 900px) {
   .section-vancouver { padding: 60px 24px; }
   .vancouver-grid { grid-template-columns: 1fr; gap: 40px; }
   .postcard { transform: none; max-width: 100%; }
-
   .route-chooser { padding: 60px 24px; }
   .route-cards { grid-template-columns: 1fr; }
-
   .route-header { padding: 70px 24px 60px; }
-
   .timeline { padding: 60px 20px; }
   .timeline-line { display: none; }
   .timeline-item,
@@ -704,18 +690,14 @@ body {
   }
   .timeline-dot {
     position: absolute;
-    left: 0;
-    top: 0;
+    left: 0; top: 0;
     transform: none;
     width: 42px; height: 42px;
   }
   .timeline-card { max-width: 100%; }
-
   .nav { padding: 14px 20px; }
   .nav-links { gap: 16px; }
-
   .hero-stamp { display: none; }
-
   .route-summary { flex-wrap: wrap; }
   .summary-item { min-width: 50%; border-bottom: 1px solid rgba(201,169,110,0.4); }
 }
