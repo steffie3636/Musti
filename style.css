@@ -1,20 +1,17 @@
 /* ============================================================
    MUSTIS KANADA-REISE — Festival / Karikatur Edition
-   Wilder, fröhlicher, handgemacht — passend zur Geburtstags-
-   Karikatur: knalliges Rot, Gold, handgeschriebene Akzente,
-   leicht schiefe Karten, Konfetti, Stempel, Washi-Tape.
    ============================================================ */
 
 :root {
   --white:   #FFFFFF;
-  --paper:   #FBF6EC;           /* wärmer, wie altes Reisejournal */
+  --paper:   #FBF6EC;
   --light:   #F4EADB;
   --border:  #E5D9C2;
   --text:    #15110C;
   --body:    #3A342A;
   --muted:   #8A7F6C;
 
-  --red:     #D81E2C;           /* Kanada-Rot, knalliger */
+  --red:     #D81E2C;
   --red-deep:#A8121E;
   --forest:  #1F4B2B;
   --ocean:   #0E5A80;
@@ -40,7 +37,6 @@ body {
   font-size: 16px;
   line-height: 1.7;
   overflow-x: hidden;
-  /* zartes Papier-Grain */
   background-image:
     radial-gradient(rgba(180,150,100,0.06) 1px, transparent 1px),
     radial-gradient(rgba(180,150,100,0.04) 1px, transparent 1px);
@@ -153,7 +149,6 @@ body {
     radial-gradient(ellipse at 50% 100%, rgba(232,179,64,0.28) 0%, transparent 45%);
   background-color: #0C1A10;
 }
-/* Konfetti / Feuerwerk */
 .hero-bg::before,
 .hero-bg::after {
   content: '';
@@ -179,7 +174,6 @@ body {
   animation-delay: 2s;
 }
 
-/* Split-Layout Hero mit Karikatur */
 .hero-content-split {
   display: grid;
   grid-template-columns: 1fr 1fr;
@@ -305,14 +299,35 @@ body {
   border-radius: 2px;
 }
 
+/* ── HERO TAGLINE — gross & als Highlight ── */
 .hero-tagline {
-  font-family: var(--font-hand);
-  font-size: 1.3rem;
-  font-weight: 600;
-  color: rgba(255,255,255,0.75);
-  letter-spacing: 0.04em;
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 4.5vw, 3.2rem);
+  font-weight: 900;
+  color: #fff;
+  letter-spacing: -0.02em;
   text-transform: none;
   margin-bottom: 40px;
+  line-height: 1.1;
+  text-shadow: 3px 3px 0 var(--red), 6px 6px 0 rgba(0,0,0,0.25);
+}
+.hero-tagline em {
+  font-style: italic;
+  color: var(--gold);
+  display: inline-block;
+  transform: rotate(-2deg);
+  position: relative;
+}
+.hero-tagline em::after {
+  content: '';
+  position: absolute;
+  left: -4px; right: -4px; bottom: 2px;
+  height: 10px;
+  background: var(--red);
+  opacity: 0.5;
+  z-index: -1;
+  transform: skewX(-8deg) rotate(-1deg);
+  border-radius: 4px;
 }
 
 .hero-btn {
@@ -378,7 +393,6 @@ body {
   background: var(--paper);
   position: relative;
 }
-/* Washi-tape deko oben */
 .section-vancouver::before {
   content: '';
   position: absolute;
@@ -549,7 +563,6 @@ body {
 
 .route-card-body { padding: 28px 28px 32px; position: relative; }
 
-/* Ecke oben rechts: Stempel */
 .route-card-body::before {
   content: '★';
   position: absolute;
@@ -610,7 +623,6 @@ body {
     linear-gradient(to bottom, rgba(12,30,15,0.72) 0%, rgba(12,30,15,0.5) 55%, rgba(12,30,15,0.82) 100%),
     url('https://images.pexels.com/photos/2662116/pexels-photo-2662116.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1') center/cover no-repeat;
 }
-/* Konfetti-Regen */
 .route-header::after {
   content: '';
   position: absolute; inset: 0;
@@ -984,6 +996,7 @@ h3.tcard-place {
 
 @media (max-width: 540px) {
   .hero-title { font-size: 4.5rem; }
+  .hero-tagline { font-size: 1.6rem; }
   .nav-links { display: none; }
   .summary-item { min-width: 100%; }
   .timeline { padding: 48px 16px 48px 64px; }
